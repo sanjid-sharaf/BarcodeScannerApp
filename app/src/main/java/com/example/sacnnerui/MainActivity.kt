@@ -23,19 +23,49 @@ import com.example.sacnnerui.ProductPage.ProductDisplay
 import com.example.sacnnerui.SearchBar.SearchViewModel
 
 class MainActivity : ComponentActivity() {
+
+    val uom1 = Product.UOM(
+        code = "EA",
+        description = "Each Quantity",
+        conversionFactor = "1",
+        weight = "1 kg",
+        upc = "347365839234",
+        fractionalQuantities = false,
+        ifSell = true,
+        ifBuy = true
+    )
+
+    val uom2 = Product.UOM(
+        code = "MP",
+        description = "Master Pack",
+        conversionFactor = "12 per 1",
+        weight = "20",
+        upc = "347365833412",
+        fractionalQuantities = true,
+        ifSell = true,
+        ifBuy = true
+    )
+
+    val quantities = mutableListOf(
+        Product.Quantity(unit = "On Hand", value = "100"),
+        Product.Quantity(unit = "Available", value = "80"),
+        Product.Quantity(unit = "On Order", value = "20"),
+        Product.Quantity(unit = "Committed", value = "10")
+    )
+
+    val uomList = mutableListOf(uom1, uom2)
+
+
+
+
     val sampleProduct = Product(
         title = "Milwaukee M28 Cordless 6-1/2\" Circular Saw Kit\n",
         sku = "MIL082020",
         price = "$99.99",
-        location = "WH101A",
-        EA = "1",
-        MP = "12",
-        onHand = "10",
-        available = "4",
-        committed = " 5",
-        onOrder = "0",
+        uoms = uomList,
+        quantities = quantities,
         primaryLocation = Location("WH101"),
-        locations = listOf(Location("WH101"), Location("WH202"))
+        locations = mutableListOf(Location("WH101"), Location("WH202"))
     )
     private val searchViewModel: SearchViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +99,6 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
-
-
 
             }
         }

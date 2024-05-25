@@ -4,30 +4,44 @@ class Product(
     val title: String,
     val sku: String,
     val price: String,
-    val location: String,
-    val EA: String,
-    val MP: String,
-    val onHand: String,
-    val available: String,
-    val committed: String,
-    val onOrder: String,
-    val primaryLocation: Location,
-    val locations: List<Location>
+    var uoms : MutableList<UOM>,
+    var quantities: MutableList<Quantity>,
+    var primaryLocation: Location?,
+    var locations: MutableList<Location>,
+
+
 
 ) {
-    var measures: List<Quantity> = listOf(
-        Quantity("EA Quantity", EA),
-        Quantity("Master Pack Quantity", MP)
+
+    fun addLocation(location: Location) {
+        locations.add(location)
+    }
+    fun removeLocation(location: Location) {
+        locations.remove(location)
+        if(primaryLocation == location)
+        {
+            primaryLocation = null
+        }
+    }
+
+    fun setPrimary(location: Location){
+        primaryLocation = location
+    }
+    data class Quantity(
+        val unit: String,
+        val value: String
     )
-    val inventoryValues: List<Quantity> = listOf(
-        Quantity("On Hand", onHand),
-        Quantity("Available", available),
-        Quantity("Committed", committed),
-        Quantity("On Order", onOrder)
+
+    public data class UOM(
+        val code: String,
+        val description: String,
+        val conversionFactor: String,
+        val weight: String,
+        val upc: String,
+        val fractionalQuantities: Boolean,
+        val ifSell: Boolean,
+        val ifBuy: Boolean
     )
+
 }
 
-data class Quantity(
-    val unit: String,
-    val value: String
-)
