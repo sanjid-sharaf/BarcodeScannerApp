@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.sacnnerui"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,4 +72,31 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.6.7")
     //noinspection UseTomlInstead
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    //noinspection UseTomlInstead
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    //noinspection UseTomlInstead
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    //noinspection GradleDependency,UseTomlInstead
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
+    //noinspection UseTomlInstead
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    //noinspection UseTomlInstead
+
+
+    // Coil
+    //noinspection UseTomlInstead
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+
+    //DataWedge
+
+    //noinspection UseTomlInstead
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
+
+    //noinspection UseTomlInstead
+    implementation ("androidx.appcompat:appcompat:1.7.0")
+    //noinspection UseTomlInstead
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
 }

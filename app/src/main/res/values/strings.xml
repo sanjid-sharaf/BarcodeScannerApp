@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sacnner UI</string>
+    <string name="activity_intent_filter_action">com.sacnner_ui.ACTION</string>
+    <string name="com.sacnner_ui.source">com.motorolasolutions.emdk.datawedge.source</string>
+    <string name="com.sacnner_ui.label_type">com.motorolasolutions.emdk.datawedge.label_type</string>
+    <string name="com.sacnner_ui.data_string">com.motorolasolutions.emdk.datawedge.data_string</string>
 </resources>
