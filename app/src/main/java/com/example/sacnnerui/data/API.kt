@@ -14,7 +14,7 @@ import retrofit2.http.Query
 
 interface API {
     companion object {
-        const val BASE_URL = "http://192.168.0.178:5001/"
+        const val BASE_URL = "http://localhost:5001/"
     }
 
     @GET("products/{id}")
